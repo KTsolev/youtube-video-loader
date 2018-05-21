@@ -1,0 +1,86 @@
+.comment-tile {
+  display: flex;
+  flex-direction: column;
+  max-width: 410px;
+  min-height: 250px;
+  background-color: #FFFFFF;
+  padding: 5px; }
+  .comment-tile__header, .comment-tile__main, .comment-tile__footer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    vertical-align: middle;
+    margin: 10px 0;
+    width: 100%;
+    max-height: 150px; }
+  .comment-tile__author-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    vertical-align: middle;
+    margin-left: 15px;
+    padding: 5px; }
+  .comment-tile__icons {
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+    align-items: flex-start;
+    justify-content: flex-start;
+    vertical-align: middle; }
+    .comment-tile__icons--right {
+      text-align: right;
+      align-self: flex-end; }
+  .comment-tile__icon {
+    font-size: 16px;
+    color: #68B4C7;
+    padding: 5px;
+    width: 100%;
+    height: 100%; }
+    .comment-tile__icon--report {
+      color: #666666; }
+  .comment-tile__text {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #666666;
+    width: 50%;
+    height: 100%;
+    padding: 5px; }
+  .comment-tile__author-avatar {
+    padding: 5px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; }
+  .comment-tile__author-name {
+    padding: 5px;
+    font-size: 18px;
+    color: #68B4C7; }
+  .comment-tile__date {
+    padding: 5px;
+    font-size: 14px;
+    color: #666666; }
+  .comment-tile__comment {
+    padding: 5px;
+    text-align: justify;
+    width: 90%;
+    height: 100%;
+    font-size: 18px;
+    color: #666666;
+    word-wrap: break-word; }
+  .comment-tile__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100%;
+    max-height: 250px;
+    padding: 5px; }
+  .comment-tile__author-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%; }
+
+/*# sourceMappingURL=commentComponent.css.map */
