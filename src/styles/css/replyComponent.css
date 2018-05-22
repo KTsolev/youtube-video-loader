@@ -6,8 +6,6 @@
   background-color: #FFFFFF;
   padding: 5px;
   margin: 5px;
-  border-top: 1px groove #999999;
-  border-bottom: 1px groove #999999;
   border-radius: 10px; }
   @media screen and (max-width: 470px) {
     .reply-tile {

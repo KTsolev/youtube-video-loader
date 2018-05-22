@@ -55,7 +55,7 @@ class YouTubeComponent extends Component {
     let fetchedComments = this.state.comments;
     const urlId = this.getVideoId();
     if (urlId && fetchedComments.length === 0) {
-      const API_KEY = 'AIzaSyBLqoX5HEj5zPM-LApBPVeTGjx4gKHr2S4';
+      const API_KEY = 'AIzaSyDrTYGSBMQwaMNQYed31KnJD6IdQJSxYHs';
       const url = `https://www.googleapis.com/youtube/v3/commentThreads?key=${API_KEY}&textFormat=plainText&part=snippet&videoId=${urlId}`;
       fetch(url)
         .then((results) => {
