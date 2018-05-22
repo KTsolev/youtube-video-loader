@@ -8,7 +8,7 @@ class YouTubeComponent extends Component {
     this.state = {
         comments: [],
       };
-
+    this.onKeyPress = this.createNew.bind(this);
   }
 
   getVideoId() {
@@ -16,36 +16,70 @@ class YouTubeComponent extends Component {
      this.props.urlParams.v : this.props.urlParams;
   }
 
+  createNew(event) {
+    const comment = event.target.value;
+    const dateCreated = new Date();
+    const videoId = this.getVideoId();
+    let index = 0;
+    if (event.key === 'Enter' && comment) {
+      const topLevelComment = {
+        snippet: {
+          id: index,
+          authorDisplayName: 'unknown',
+          authorProfileImageUrl: '',
+          videoId: videoId,
+          textDisplay: `${comment}`,
+          textOriginal: comment,
+          canRate: true,
+          viewerRating: 'none',
+          likeCount: 0,
+          publishedAt: dateCreated,
+          updatedAt: dateCreated,
+        },
+      };
+      const newComment = <CommentComponent
+         key={topLevelComment.snippet.id}
+         comment={topLevelComment} />;
+      this.state.comments.unshift(newComment);
+
+      this.setState({
+        comments: this.state.comments,
+      });
+      this.forceUpdate();
+    }
+
+    return;
+  }
+
   componentDidUpdate() {
-    let fetchedComments = [];
+    let fetchedComments = this.state.comments;
     const urlId = this.getVideoId();
-    if (urlId) {
-      const API_KEY = 'AIzaSyCFLNopfeFZaf5hKejd-5pPWpFmi_bc3Ho';
-      fetch(`https://www.googleapis.com/youtube/v3/commentThreads?key=${API_KEY}
-        &textFormat=plainText&part=snippet&videoId=${urlId}`)
+    if (urlId && fetchedComments.length === 0) {
+      const API_KEY = 'AIzaSyBLqoX5HEj5zPM-LApBPVeTGjx4gKHr2S4';
+      const url = `https://www.googleapis.com/youtube/v3/commentThreads?key=${API_KEY}&textFormat=plainText&part=snippet&videoId=${urlId}`;
+      fetch(url)
         .then((results) => {
           return results.json();
         }).then((data) => {
           if (!data) {
             return;
           }
-
           fetchedComments = data.items.map((item) => {
               return (
-                <CommentComponent comment={item.snippet.topLevelComment} />
+                <CommentComponent key={item.snippet.topLevelComment.snippet.id} comment={item.snippet.topLevelComment} />
               );
             });
           this.setState({
             comments: fetchedComments,
-          })
+          });
         }).catch(err => console.log(err));
     }
   }
 
   render() {
     const urlID = this.getVideoId();
-    const videoSrc = `https://www.youtube.com/embed/${urlID}?rel=0&showinfo=0&autoplay=0`;
 
+    const videoSrc = `https://www.youtube.com/embed/${urlID}?rel=0&showinfo=0&autoplay=0`;
     return (
       <div className={
         this.props.showVideo
@@ -79,11 +113,14 @@ class YouTubeComponent extends Component {
             type="text"
             className="youtube-player__input"
             name="comment"
-            placeholder="comment..." />
+            placeholder="comment..."
+            onKeyPress={this.createNew.bind(this)}/>
         </div>
-        <div className="youtube-player__comments-section">
+        {this.state.comments.length > 0 ?
+          <div className="youtube-player__comments-section">
             {this.state.comments}
-        </div>
+          </div>
+          : ''}
     </div>
     );
   }

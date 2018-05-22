@@ -1,0 +1,87 @@
+.reply-tile {
+  display: flex;
+  flex-direction: column;
+  max-width: 410px;
+  min-height: 100px;
+  background-color: #FFFFFF;
+  padding: 5px;
+  margin: 5px;
+  border-top: 1px groove #999999;
+  border-bottom: 1px groove #999999;
+  border-radius: 10px; }
+  @media screen and (max-width: 470px) {
+    .reply-tile {
+      width: 100%;
+      padding: 2px; } }
+  .reply-tile__header, .reply-tile__main, .reply-tile__footer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    vertical-align: middle;
+    margin: 5px 0;
+    width: 100%;
+    max-height: 150px; }
+  .reply-tile__author-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    vertical-align: middle;
+    margin-left: 15px;
+    padding: 5px; }
+  .reply-tile__icons {
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+    align-items: flex-start;
+    justify-content: flex-start;
+    vertical-align: middle; }
+    .reply-tile__icons--right {
+      text-align: right;
+      align-self: flex-end; }
+  .reply-tile__icon {
+    font-size: 16px;
+    color: #68B4C7;
+    padding: 5px;
+    width: 100%;
+    height: 100%; }
+    .reply-tile__icon--report {
+      color: #666666; }
+  .reply-tile__text {
+    font-size: 14px;
+    text-transform: uppercase;
+    break-word: break;
+    color: #666666;
+    width: 50%;
+    height: 100%;
+    padding: 5px 7px; }
+  .reply-tile__author-avatar {
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 45%; }
+  .reply-tile__author-name {
+    padding: 5px;
+    font-size: 18px;
+    color: #68B4C7; }
+  .reply-tile__date {
+    padding: 5px;
+    font-size: 14px;
+    color: #666666; }
+  .reply-tile__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100%;
+    max-height: 250px;
+    padding: 5px; }
+  .reply-tile__author-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%; }
+
+/*# sourceMappingURL=replyComponent.css.map */
